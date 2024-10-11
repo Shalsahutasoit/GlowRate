@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GlowRate - Product Rating & Review</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@400&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+
+      body {
+        background-color: #f9f9f9;
+        color: #333;
+      }
+
+      header {
+        background: linear-gradient(to right, #ff6473, #ff8fa3);
+        color: white;
+        padding: 1.5rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        position: relative;
+      }
+
+      .back-button {
+        color: white;
+        font-size: 1.5rem;
+        padding: 10px 15px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.2);
+        transition: background 0.3s, transform 0.3s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        left: 20px;
+      }
+
+      .back-button:hover {
+        background: rgba(255, 255, 255, 0.4);
+        transform: scale(1.1);
+      }
+
+      header h1 {
+        font-family: "Dancing Script", cursive;
+        font-size: 3.5rem;
+        letter-spacing: 2px;
+        margin: 0 100px;
+        text-align: center;
+        flex-grow: 1;
+        background: linear-gradient(90deg, #ffffff, #ffe3e9);
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .nav-right a {
+        background-color: #fff2f4;
+        padding: 10px 25px;
+        border-radius: 25px;
+        font-family: "Dancing Script", cursive;
+        font-size: 1.3rem;
+        letter-spacing: 1px;
+        color: #ff6473;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        transition: background-color 0.3s, color 0.3s;
+      }
+
+      .nav-right a:hover {
+        background-color: #ffccd6;
+        color: white;
+      }
+
+      main {
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 10px;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .product {
+        margin-bottom: 20px;
+      }
+
+      .product-details {
+        display: flex;
+        align-items: center;
+      }
+
+      .product-details img {
+        max-width: 150px;
+        margin-right: 20px;
+        margin-top: -30px;
+      }
+
+      .rating-review {
+        background-color: #f4f4f4;
+        padding: 15px;
+        border-radius: 10px;
+      }
+
+      .rating {
+        font-size: 2rem;
+        color: #ffcc00;
+      }
+
+      .stars {
+        display: flex;
+        gap: 5px;
+        flex-direction: row-reverse;
+        justify-content: flex-end;
+      }
+
+      .stars input {
+        display: none;
+      }
+
+      .stars label {
+        font-size: 2rem;
+        color: #ccc;
+        cursor: pointer;
+      }
+
+      .stars label:hover,
+      .stars label:hover ~ label,
+      .stars input:checked ~ label {
+        color: #ffcc00;
+      }
+
+      form {
+        margin-top: 10px;
+      }
+
+      textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+      }
+
+      button {
+        padding: 10px 20px;
+        background-color: #ff6473;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #e55566;
+      }
+
+      footer p {
+        text-align: center;
+        padding: 20px;
+        background-color: #ff6473;
+        color: white;
+        margin-top: 20px;
+      }
+
+      #reviewsContainer {
+        margin-top: 20px;
+        padding: 10px;
+        background-color: #e9e9e9;
+        border-radius: 5px;
+      }
+
+      .review-item {
+        background-color: white;
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      p {
+        text-align: justify;
+        font-size: 13px;
+      }
+
+      h4 {
+        font-size: 17px;
+        margin-top: 10px;
+      }
+
+      h2 {
+        font-size: 20px;
+        text-align: left;
+        top: 65px;
+        margin-left: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a class="back-button" href="#" onclick="history.back();">
+        <i class="fas fa-chevron-left"></i>
+      </a>
+
+      <h1>GlowRate</h1>
+
+      <div class="nav-right">
+        <a href="menu.html">Beranda</a>
+      </div>
+    </header>
+    <main>
+      <section class="product">
+        <h2 id="productName">Pomegranate Niacinamide Brightening Clay Stick</h2>
+        <div class="product-details">
+          <img src="../gambar/clay stick g2g2.jpeg" alt="G2G Product Image" />
+          <div class="product-info">
+            <h4><b>Harga :</b></h4> 
+            <p>Rp 40.000</p>
+            <h4><b>Jenis Kulit :</b></h4> 
+            <p>Cocok untuk semua jenis kulit </p>
+            <h4><b>Deskripsi :</b></h4> 
+            <p>Clay mask berbentuk stick yang mudah digunakan tanpa membuat tangan kotor dan travel friendly, mudah diaplikasikan dalam satu kali swipe, dan dapat mengcover seluruh area wajah hingga merata. Dengan kandungan Niacinamide & Pomegranate yang berfungsi untuk membersihkan, mencerahkan dan menghaluskan kulit serta mengontrol minyak berlebih pada wajah. Diperkaya dengan kandungan beta glucan yang memberikan kelembaban dan menjaga kulit dari rasa kering. 
+            </p>
+          </div>
+        </div>
+      </section>
+      <div class="rating-summary">
+        <h3 style="font-size: 1rem;">Rating Distribution</h3>
+        <div class="rate-data">
+          <div class="bar-container" style="display: flex; align-items: center;">
+            <p style="width: 50px; margin-right: 50px; font-size: 0.9rem;">⭐</p>
+            <div
+              class="bar"
+              id="bar1"
+              style="width: 0%; height: 8px; background-color: #007bff; border-radius: 5px; margin-right: 10px;"
+            ></div>
+            <p id="ratingCount1" style="font-size: 0.9rem;">0</p>
+          </div>
+          <div class="bar-container" style="display: flex; align-items: center;">
+            <p style="width: 50px; margin-right: 50px; font-size: 0.9rem;">⭐⭐</p>
+            <div
+              class="bar"
+              id="bar2"
+              style="width: 0%; height: 8px; background-color: #007bff; border-radius: 5px; margin-right: 10px;"
+            ></div>
+            <p id="ratingCount2" style="font-size: 0.9rem;">0</p>
+          </div>
+          <div class="bar-container" style="display: flex; align-items: center;">
+            <p style="width: 50px; margin-right: 50px; font-size: 0.9rem;">⭐⭐⭐</p>
+            <div
+              class="bar"
+              id="bar3"
+              style="width: 0%; height: 8px; background-color: #007bff; border-radius: 5px; margin-right: 10px;"
+            ></div>
+            <p id="ratingCount3" style="font-size: 0.9rem;">0</p>
+          </div>
+          <div class="bar-container" style="display: flex; align-items: center;">
+            <p style="width: 50px; margin-right: 50px; font-size: 0.9rem;">⭐⭐⭐⭐</p>
+            <div
+              class="bar"
+              id="bar4"
+              style="width: 0%; height: 8px; background-color: #007bff; border-radius: 5px; margin-right: 10px;"
+            ></div>
+            <p id="ratingCount4" style="font-size: 0.9rem;">0</p>
+          </div>
+          <div class="bar-container" style="display: flex; align-items: center;">
+            <p style="width: 50px; margin-right: 50px; font-size: 0.9rem;">⭐⭐⭐⭐⭐</p>
+            <div
+              class="bar"
+              id="bar5"
+              style="width: 0%; height: 8px; background-color: #007bff; border-radius: 5px; margin-right: 10px;"
+            ></div>
+            <p id="ratingCount5" style="font-size: 0.9rem;">0</p>
+          </div>
+        </div>
+      </div>
+
+      <section class="rating-review">
+        <h3>Berikan Penilaian dan Review</h3>
+        <form id="reviewForm">
+          <input type="text" id="username" placeholder="Nama Anda" required />
+          <div class="stars">
+            <input type="radio" name="rating" id="star5" value="5" />
+            <label for="star5" title="5 stars">★</label>
+            <input type="radio" name="rating" id="star4" value="4" />
+            <label for="star4" title="4 stars">★</label>
+            <input type="radio" name="rating" id="star3" value="3" />
+            <label for="star3" title="3 stars">★</label>
+            <input type="radio" name="rating" id="star2" value="2" />
+            <label for="star2" title="2 stars">★</label>
+            <input type="radio" name="rating" id="star1" value="1" />
+            <label for="star1" title="1 star">★</label>
+          </div>
+          <textarea
+            id="review"
+            rows="4"
+            placeholder="Tulis review anda di sini..."
+            required
+          ></textarea>
+          <button type="submit">Kirim Review</button>
+        </form>
+      </section>
+
+      <div id="reviewsContainer">
+        <h3>Review Pengguna:</h3>
+      </div>
+    </main>
+    <footer>
+      <p>© 2024 GlowRate. All rights reserved.</p>
+    </footer>
+
+    <script>
+      // Fungsi untuk menampilkan review dari LocalStorage
+      function displayReviews() {
+        const reviewsContainer = document.getElementById("reviewsContainer");
+        reviewsContainer.innerHTML = ""; // Mengosongkan kontainer sebelum menambahkan review baru
+
+        const productName = document.getElementById("productName").innerText;
+        const reviews = JSON.parse(localStorage.getItem("reviews")) || [];
+
+        let ratingCounts = [0, 0, 0, 0, 0]; // Untuk menyimpan jumlah rating 1-5
+
+        // Menampilkan review yang sesuai dengan nama produk
+        reviews
+          .filter((review) => review.product === productName)
+          .forEach((review) => {
+            const reviewElement = document.createElement("div");
+            reviewElement.classList.add("review-item");
+
+            reviewElement.innerHTML = `
+              <div class="rating">${"★".repeat(review.rating)}</div>
+              <p><strong>${review.username}</strong>: ${review.review}</p>
+            `;
+            reviewsContainer.appendChild(reviewElement);
+
+            // Menghitung distribusi rating
+            ratingCounts[review.rating - 1]++; // Meningkatkan count untuk rating yang sesuai
+          });
+
+        // Update tampilan distribusi rating
+        updateRatingDistribution(ratingCounts);
+      }
+
+      // Fungsi untuk memperbarui tampilan distribusi rating
+      function updateRatingDistribution(ratingCounts) {
+        const totalReviews = ratingCounts.reduce((a, b) => a + b, 0);
+
+        for (let i = 0; i < ratingCounts.length; i++) {
+          const bar = document.getElementById(`bar${i + 1}`);
+          const ratingCount = document.getElementById(`ratingCount${i + 1}`);
+          const percentage = totalReviews ? (ratingCounts[i] / totalReviews) * 100 : 0;
+
+          bar.style.width = `${percentage}%`;
+          ratingCount.innerText = ratingCounts[i];
+        }
+      }
+
+      // Event listener untuk menangani pengiriman form
+      document.getElementById("reviewForm").addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        const username = document.getElementById("username").value;
+        const ratingInputs = document.querySelectorAll('input[name="rating"]');
+        let rating = null;
+        for (const input of ratingInputs) {
+          if (input.checked) {
+            rating = parseInt(input.value);
+            break;
+          }
+        }
+
+        if (rating !== null) {
+          const reviewText = document.getElementById("review").value;
+          const productName = document.getElementById("productName").innerText;
+
+          const newReview = {
+            username: username,
+            rating: rating,
+            review: reviewText,
+            product: productName, // Menyimpan nama produk
+          };
+
+          // Menyimpan review ke LocalStorage
+          const reviews = JSON.parse(localStorage.getItem("reviews")) || [];
+          reviews.push(newReview);
+          localStorage.setItem("reviews", JSON.stringify(reviews));
+
+          displayReviews(); // Menampilkan review terbaru
+          document.getElementById("reviewForm").reset(); // Mengosongkan form
+        } else {
+          alert("Harap pilih rating sebelum mengirim review.");
+        }
+      });
+
+      // Menampilkan review saat halaman dimuat
+      window.onload = displayReviews;
+    </script>
+  </body>
+</html>

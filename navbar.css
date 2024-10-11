@@ -1,0 +1,163 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow: auto;
+    font-size: 16px; 
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    background: linear-gradient(to right, #ff6473, #ff8fa3);
+    padding: 15px;
+    color: #fff;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000; 
+}
+
+.navbar .logo {
+    font-size: 40px; 
+    margin-left: 30px;
+    font-family: dancing script, cursive;
+}
+
+.navbar ul {
+    list-style-type: none; 
+    margin: 0; 
+    padding: 0; 
+    display: flex; 
+}
+
+.navbar ul li {
+    margin-right: 50px; 
+}
+
+.navbar ul li a {
+    color: #fff; 
+    text-decoration: none; 
+    font-size: 18px; 
+    font-family: Playfair Display, serif; 
+}
+
+.navbar ul li a:hover {
+    text-decoration: none;
+}
+
+/* Kontainer Utama */
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 100px 20px; 
+    height: 100vh;
+    white-space: normal;
+}
+
+h1 {
+    padding: 0;
+    max-width: 600px;
+    margin-left: 0px; 
+    color: #333;
+    text-align: left;
+}
+
+@media (max-width: 1200px) {
+    .navbar ul li {
+        margin-right: 30px; /* Sesuaikan margin di layar lebih kecil */
+    }
+    
+    .navbar .logo {
+        font-size: 32px; /* Ukuran logo lebih kecil */
+    }
+    
+    .navbar ul li a {
+        font-size: 16px; /* Ukuran teks lebih kecil */
+    }
+    
+    .container {
+        padding: 80px 15px; /* Sesuaikan padding pada layar lebih kecil */
+    }
+
+    h1 {
+        font-size: 5vw; /* Ukuran font menyesuaikan layar */
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar ul {
+        display: block;
+        text-align: center;
+    }
+
+    .navbar ul li {
+        margin-right: 0;
+        margin-bottom: 15px; /* Spasi antar menu */
+    }
+
+    .container {
+        padding: 80px 10px;
+    }
+
+    h1 {
+        font-size: 6vw; /* Sesuaikan ukuran font */
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar ul {
+        flex-direction: column; /* Menu menjadi vertikal di perangkat kecil */
+    }
+    
+    .navbar ul li {
+        margin-bottom: 10px; /* Margin antar item menu di layar kecil */
+    }
+
+    .navbar .logo {
+        font-size: 28px; /* Ukuran logo di perangkat kecil */
+    }
+
+    .container {
+        padding: 70px 10px;
+    }
+
+    h1 {
+        font-size: 7vw; /* Ukuran font yang lebih besar untuk perangkat kecil */
+    }
+}
+
+body {
+    font-size: 2vw;
+}
+
+.logo {
+    width: 10vw;
+    height: auto;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.zoomable {
+    transform: scale(0.8);
+    transform-origin: center;
+}
+footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #ff6473;
+    color: white;
+    font-family: "Poppins", sans-serif;
+    margin-top: auto; 
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 13px;
+  }
+
+

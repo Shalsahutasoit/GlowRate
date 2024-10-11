@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GlowRate</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@400&display=swap"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap">
+    <link rel="stylesheet" href="navbar.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">GlowRate</div>
+        <ul>
+            <li><a href="menu.html">Beranda</a></li>
+            <li><a href="#" id="loginBtn">Login</a></li>
+        </ul>
+    </nav>   
+    <div class="container"> 
+        <h1>Selamat Datang di GlowRate</h1>
+        <p>Cari Produk Skincare Favorit Anda 
+            dan Lihat Ulasan dari Pengguna Lainnya.</p>
+        <a href="login.html" id="signupBtn" class="btn-signup">Sign Up</a>
+    </div>
+    <link rel="stylesheet" href="login.css">
+   
+    <script>
+        // Cek apakah user sudah login
+        document.addEventListener('DOMContentLoaded', function() {
+            const loginBtn = document.getElementById('loginBtn');
+            const signupBtn = document.getElementById('signupBtn');
+
+            // Periksa status login dari LocalStorage
+            const isLoggedIn = localStorage.getItem('isLoggedIn');
+
+            if (isLoggedIn === 'true') {
+                // Jika user sudah login
+                loginBtn.textContent = 'Logout';
+                loginBtn.href = '#'; // Logout tidak mengarah ke halaman lain
+                signupBtn.textContent = 'Cari Produk';
+                signupBtn.href = 'menu.html'; // Arahkan ke berand.html setelah login
+
+                // Tambahkan event untuk logout
+                loginBtn.addEventListener('click', function() {
+                    localStorage.setItem('isLoggedIn', 'false'); // Update status login ke false
+                    window.location.reload(); // Muat ulang halaman untuk menampilkan tampilan login
+                });
+            } else {
+                // Jika user belum login
+                loginBtn.textContent = 'Login';
+                loginBtn.href = 'login.html'; // Arahkan ke halaman login
+                signupBtn.textContent = 'Sign Up';
+                signupBtn.href = 'login.html'; // Arahkan ke halaman sign up
+            }
+        });
+    </script>
+</body>
+</html>

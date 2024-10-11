@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GlowRate</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@400&display=swap"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link rel="stylesheet" href="navbar.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">GlowRate</div>
+        <ul>
+            <li><a href="menu.html">Beranda</a></li>
+            <li><a href="#" id="loginBtn">Login</a></li>
+        </ul>
+    </nav>
+
+    <div class="slider">
+        <div class="slides">
+            <div class="slide"><img src="gambar/iklan1.png" alt="Slide 1"></div>
+            <div class="slide"><img src="gambar/iklan2.png"alt="Slide 2"></div>
+            <div class="slide"><img src="gambar/iklan3.png" alt="Slide 3"></div>
+            <div class="slide"><img src="gambar/iklan4.png" alt="Slide 3"></div>
+            <div class="slide"><img src="gambar/iklan5.png" alt="Slide 3"></div>
+        </div>
+        <button class="nav-button prev" onclick="prevSlide()">❮</button>
+        <button class="nav-button next" onclick="nextSlide()">❯</button>
+    </div>
+    
+    <div class="indicators">
+        <span class="indicator active" onclick="goToSlide(0)"></span>
+        <span class="indicator" onclick="goToSlide(1)"></span>
+        <span class="indicator" onclick="goToSlide(2)"></span>
+        <span class="indicator" onclick="goToSlide(3)"></span>
+        <span class="indicator" onclick="goToSlide(4)"></span>
+    </div>
+    <link rel="stylesheet" href="slide.css">
+
+    <div class="category-section">
+        <h2>Pilih Skincare Favorit Anda</h2>
+        <div class="logo-container">
+            <a href="produk garnier.html" target="_blank">
+              <img src="gambar/ganier.jpg" alt="Garnier" />
+              <p>Garnier</p>
+            </a>
+            <a href="produk facetology.html" target="_blank">
+              <img src="gambar/facetology.webp" alt="Facetology" />
+              <p>Facetology</p>
+            </a>
+
+            <a href="produk azarine.html" target="_blank">
+                <img src="gambar/azarine.jpeg" alt="Facetology" />
+                <p>Azarine</p>
+            </a>
+
+            <a href="produk cosrx.html" target="_blank">
+                <img src="gambar/cosrx.jpg" alt="Facetology" />
+                <p>Cosrx</p>
+            </a>
+
+              <a href="produk emina.html" target="_blank">
+                <img src="gambar/emina.jpg" alt="Facetology" />
+                <p>Emina</p>
+              </a>
+
+              <a href="produk wardah.html" target="_blank">
+                <img src="gambar/wardah.jpg" alt="Facetology" />
+                <p>Wardah</p>
+              </a>
+
+              <a href="produk somethinc.html" target="_blank">
+                <img src="gambar/somethinc.png" alt="Facetology" />
+                <p>Somethinc</p>
+              </a>
+            
+              <a href="produk skintific.html" target="_blank">
+                <img src="gambar/skintific.png" alt="Facetology" />
+                <p>Skintific</p>
+              </a>
+            
+              <a href="produk hanasui.html" target="_blank">
+                <img src="gambar/hanasui.png" alt="Facetology" />
+                <p>Hanasui</p>
+              </a>
+            
+              <a href="produk scora.html" target="_blank">
+                <img src="gambar/scora.jpg" alt="Facetology" />
+                <p>Scora</p>
+              </a>
+            
+              <a href="produk g2g.html" target="_blank">
+                <img src="gambar/g2g.jpeg" alt="Facetology" />
+                <p>Glad2Glow</p>
+              </a>
+          </div>
+        
+    <link rel="stylesheet" href="ikon.css">
+
+    <div class="product-slider-container">
+        <h2>Produk Best Seller</h2>
+        <div class="product-slider">
+            <button class="prev" onclick="moveProductSlide(-1)">&#10094;</button>
+            <div class="product-slides">
+                <div class="product-slide">
+                    <img src="gambar/peeling sk.webp" alt="Dear Me Beauty Body Wash">
+                    <b><p>Skintific</p></b>
+                    <p>Acid Peeling Solution Serum 30ml </p>
+                    <p>Rp 148.900</p>
+                </div>
+                <div class="product-slide">
+                    <img src="gambar/msskin.jpeg" alt="Orinesia Dry Shampoo">
+                    <b><p>Skintific</p></b>
+                    <p>5X Ceramide Barrier Moisturizer Gel 30g</p>
+                    <p>Rp 138.900</p>
+                </div>
+                <div class="product-slide">
+                    <img src="gambar/ft sunscreen.png" alt="Luxcrime Concealer">
+                    <b><p>Facetology</p></b>
+                    <p>Triple Care Sunscreen SPF 40 PA+++ 40ML</p>
+                    <p>Rp 59.900</p>
+                </div>
+                <div class="product-slide">
+                    <img src="gambar/ms g2g.avif" alt="Somethinc Lip Tint">
+                    <b><p>Glad2Glow</p></b>
+                    <p>Pomegranate 5% Niacinamide Brightening Moisturizer-30g</p>
+                    <p>Rp 49.000</p>
+                </div>
+                <div class="product-slide">
+                    <img src="gambar/sc azarine.webp" alt="Azarine Serum">
+                    <b><p>Azarine</p></b>
+                    <p>Hydrasoothe Sunscreen Gel SPF45 PA++++ 50ml</p>
+                    <p>Rp 44.900</p>
+                </div>
+                <div class="product-slide">
+                    <img src="gambar/33.jpeg" alt="Skintific Moisturizer">
+                    <b><p>Scora</p></b>
+                    <p>Salicylic Acid Gentle Low pH Cleanser</p>
+                    <p>Rp 38.000</p>
+                </div>
+                <div class="product-slide">
+                    <img src="gambar/micellar g.jpg" alt="Hanasui Serum">
+                    <b><p>Garnier</p></b>
+                    <p>Micellar Cleansing Water Pink Skin Care - 400ml</p>
+                    <p>Rp 36.575</p>
+                </div>
+                <div class="product-slide">
+                    <img src="gambar/rt skintific.webp" alt="Wardah Sunscreen">
+                    <b><p>Skintific</p></b>
+                    <p>Retinol Skin Renewal Serum 20ml</p>
+                    <p>Rp 138.900</p>
+                </div>
+                <div class="product-slide">
+                    <img src="gambar/peeling hns.jpg" alt="Cosrx Essence">
+                    <b><p>Hanasui</p></b>
+                    <p>Power Peeling Serum 20ml</p>
+                    <p>Rp 30.184</p>
+                </div>
+                <div class="product-slide">
+                    <img src="gambar/sc skintific.png" alt="Emina Lip Balm">
+                    <b><p>Skintific</p></b>
+                    <p>All Day Light Sunscreen Mist SPF 50 PA++++ 120ml</p>
+                    <p>Rp 98.900</p>
+                </div>
+            </div>
+            <button class="next" onclick="moveProductSlide(1)">&#10095;</button>
+        </div>
+        <link rel="stylesheet" href="ikon2.css">
+    </div>
+    
+    <style>
+        .video-section video {
+            float: left;
+            margin-left: 50px;
+            width: 200px;
+            margin-top: 50px;
+        }
+    </style>
+    
+    <div class="video-section">
+        <h2> Video Review Skincare </h2>
+        <video controls>
+            <source src="gambar/riviw.mp4" type="video/mp4">
+            Browser Anda tidak mendukung pemutar video ini.
+        </video>
+        <video controls>
+              <source src="gambar/riviw2.mp4" type="video/mp4">
+            Browser Anda tidak mendukung pemutar video ini.
+        </video>
+        <video controls>
+            <source src="gambar/riviw3.mp4" type="video/mp4">
+          Browser Anda tidak mendukung pemutar video ini.
+      </video>
+      <video controls>
+        <source src="gambar/riviw4.mp4" type="video/mp4">
+      Browser Anda tidak mendukung pemutar video ini.
+  </video>
+    </div>
+    <link rel="stylesheet" href="video.css">
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const loginBtn = document.getElementById('loginBtn');
+            const signupBtn = document.getElementById('signupBtn');
+
+            // Periksa status login dari LocalStorage
+            const isLoggedIn = localStorage.getItem('isLoggedIn');
+
+            if (isLoggedIn === 'true') {
+                
+                loginBtn.textContent = 'Logout';
+                loginBtn.href = '#'; 
+
+         
+                loginBtn.addEventListener('click', function() {
+                    localStorage.setItem('isLoggedIn', 'false');
+                    window.location.reload(); 
+                });
+            } else {
+             
+                loginBtn.textContent = 'Login';
+                loginBtn.href = 'login.html';
+                signupBtn.textContent = 'Sign Up';
+                signupBtn.href = 'login.html'; 
+            }
+        });
+        
+        let currentSlide = 0;
+        const slides = document.querySelector('.slides');
+        const totalSlides = document.querySelectorAll('.slide').length;
+        const indicators = document.querySelectorAll('.indicator');
+    
+        function showSlide(index) {
+            currentSlide = index;
+            if (currentSlide >= totalSlides) currentSlide = 0;
+            if (currentSlide < 0) currentSlide = totalSlides - 1;
+    
+            const offset = -currentSlide * 100;
+            slides.style.transform = `translateX(${offset}%)`;
+            updateIndicators();
+        }
+    
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+    
+        function prevSlide() {
+            showSlide(currentSlide - 1);
+        }
+    
+        function goToSlide(index) {
+            showSlide(index);
+        }
+    
+        setInterval(nextSlide, 5000);
+    
+        function updateIndicators() {
+            indicators.forEach((indicator, index) => {
+                indicator.classList.toggle('active', index === currentSlide);
+            });
+        }
+        let currentIndex = 0;
+        const items = document.querySelectorAll('.product-slide');
+        const totalItems = items.length;
+
+        function moveProductSlide(direction) {
+        currentIndex += direction; 
+        if (currentIndex < 0) {
+        currentIndex = totalItems - 4;
+        } else if (currentIndex > totalItems - 4) {
+        currentIndex = 0;
+        }
+        const offset = -currentIndex * 100 / 4; 
+        document.querySelector('.product-slides').style.transform = `translateX(${offset}%)`;
+        }
+        document.querySelectorAll('.logo-container a').forEach(logo => {
+    logo.addEventListener('click', (event) => {
+    event.preventDefault();
+    const link = event.currentTarget.getAttribute('href');
+    window.open(link, '_blank');
+  });
+});
+
+    </script>
+    
+</body>
+</html>

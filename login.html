@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Page</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #f7f7f7;
+      }
+      .container {
+        width: 300px;
+        padding: 20px;
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        text-align: center;
+      }
+      input[type="text"],
+      input[type="password"],
+      input[type="email"] {
+        width: 95%;
+        padding: 5px;
+        margin: 8px 0;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+      }
+      .signin-btn,
+      .create-account-btn {
+        width: 100%;
+        padding: 10px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        font-size: 1em;
+        cursor: pointer;
+      }
+      .signin-btn {
+        background-color: #004d33;
+        color: white;
+      }
+      .create-account-btn {
+        background-color: #cc3300;
+        color: white;
+      }
+      .profile {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="loginContainer" class="container">
+      <h2>Login</h2>
+      <form id="loginForm">
+        <input type="text" id="loginUsername" placeholder="Username" required />
+        <input
+          type="password"
+          id="loginPassword"
+          placeholder="Password"
+          required
+        />
+        <button type="button" onclick="login()" class="signin-btn">
+          Sign in
+        </button>
+      </form>
+      <button type="button" onclick="showRegister()" class="create-account-btn">
+        Create New Account
+      </button>
+      <p id="message" style="color: red"></p>
+    </div>
+
+    <div id="registerContainer" class="container" style="display: none">
+      <h2>Create Account</h2>
+      <input type="text" id="regName" placeholder="Full Name" required />
+      <input type="text" id="regUsername" placeholder="Username" required />
+      <input type="email" id="regEmail" placeholder="Email" required />
+      <input type="password" id="regPassword" placeholder="Password" required />
+      <button type="button" onclick="register()" class="create-account-btn">
+        Register
+      </button>
+      <button type="button" onclick="showLogin()" class="signin-btn">
+        Back to Login
+      </button>
+    </div>
+
+    <div id="profileContainer" class="container" style="display: none">
+      <h2>Welcome, <span id="profileName"></span></h2>
+      <p>Email: <span id="profileEmail"></span></p>
+      <button type="button" onclick="logout()" class="signin-btn">
+        Logout
+      </button>
+      <button type="button" onclick="exportData()" class="create-account-btn">
+        Export Data
+      </button>
+    </div>
+
+    <script>
+      // Menampilkan form registrasi
+      function showRegister() {
+        document.getElementById("loginContainer").style.display = "none";
+        document.getElementById("registerContainer").style.display = "block";
+      }
+
+      // Menampilkan form login
+      function showLogin() {
+        document.getElementById("registerContainer").style.display = "none";
+        document.getElementById("loginContainer").style.display = "block";
+      }
+
+      // Fungsi untuk register dan simpan data ke LocalStorage
+      function register() {
+        const name = document.getElementById("regName").value;
+        const username = document.getElementById("regUsername").value;
+        const email = document.getElementById("regEmail").value;
+        const password = document.getElementById("regPassword").value;
+
+        if (name && username && email && password) {
+          // Periksa apakah username sudah ada
+          let users = JSON.parse(localStorage.getItem("users")) || {};
+
+          if (users[username]) {
+            alert("Username already exists");
+          } else {
+            const user = {
+              name,
+              username,
+              email,
+              password,
+            };
+
+            users[username] = user; // Simpan pengguna ke dalam objek 'users'
+            localStorage.setItem("users", JSON.stringify(users)); // Simpan objek 'users' ke LocalStorage
+            alert("User registered successfully!");
+            showLogin();
+          }
+        } else {
+          alert("Please fill in all fields");
+        }
+      }
+
+      // Fungsi login dan menampilkan profil
+      function login() {
+        const username = document.getElementById("loginUsername").value;
+        const password = document.getElementById("loginPassword").value;
+
+        const users = JSON.parse(localStorage.getItem("users")) || {};
+        if (users[username]) {
+          const user = users[username];
+          if (user.password === password) {
+            document.getElementById("message").textContent = "";
+
+            localStorage.setItem('isLoggedIn', 'true');
+
+            // Arahkan ke halaman1.html setelah login berhasil
+            window.location.href = "halaman1.html";
+          } else {
+            document.getElementById("message").textContent = "Invalid password";
+          }
+        } else {
+          document.getElementById("message").textContent = "User not found";
+        }
+      }
+
+      // Fungsi logout
+      function logout() {
+        document.getElementById("profileContainer").style.display = "none";
+        document.getElementById("loginContainer").style.display = "block";
+        document.getElementById("loginForm").reset();
+      }
+    </script>
+  </body>
+</html>
